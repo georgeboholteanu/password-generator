@@ -1,4 +1,4 @@
-# Passwprd Generator
+# Password Generator
 
 ## Overview
 
