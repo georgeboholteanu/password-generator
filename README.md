@@ -29,5 +29,5 @@ https://georgeboholteanu.github.io/password-generator/
 
 ## Copyright
 
-© 2022 George Boholteanu.
+© 2023 George Boholteanu.
   All Rights Reserved.
