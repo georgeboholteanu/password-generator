@@ -105,6 +105,10 @@ function getPasswordOptions() {
   if (confirm("Do you want uppercase characters?")) {
     charactersArr.push.apply(charactersArr, upperCasedCharacters);
   }
+
+  if (confirm("Do you want number characters?")) {
+    charactersArr.push.apply(charactersArr, numericCharacters);
+  }
   
   if (confirm("Do you want special characters?")) {
     charactersArr.push.apply(charactersArr, specialCharacters);
