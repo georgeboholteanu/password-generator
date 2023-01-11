@@ -129,11 +129,19 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
   var arr = getPasswordOptions();
+  var pass = [];
+
   if (arr.length === 0) {
     alert("You must select at least one type of character!");
-    arr = getPasswordOptions();
-  }else {
-    var pass = [];
+    arr = getPasswordOptions();    
+ 
+    for (var i = 0; i < selection; i++) {
+      pass.push(getRandom(arr));
+    }
+    return pass.join('');
+
+  }else {    
+    
     for (var i = 0; i < selection; i++) {
       pass.push(getRandom(arr));
     }
@@ -144,6 +152,7 @@ function generatePassword() {
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
+var copyBtn = document.querySelector('#copy');
 
 // Write password to the #password input
 function writePassword() {
@@ -153,7 +162,30 @@ function writePassword() {
   passwordText.value = password;
 }
 
+
+// Copy generated password to clipboard
+function copyToClipboard() {
+  // Get the text field
+  var copyText = document.getElementById("password");
+
+  if (isNaN(copyText.value)) {
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.value);
+
+    // Alert the copied text
+    alert("Password copied: " + copyText.value);
+
+  }else{
+    alert("There is no password generated to be copied!");
+  }
+}
+
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+copyBtn.addEventListener('click', copyToClipboard);
 
 
