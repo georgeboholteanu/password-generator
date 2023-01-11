@@ -129,12 +129,16 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
   arr = getPasswordOptions();
-  
-  var pass = [];
-  for (var i = 0; i < selection; i++) {
-    pass.push(getRandom(arr));
-  }
-  return pass.join('')
+  if (arr.length === 0) {
+    alert("You must select at least one type of character");
+    getPasswordOptions();
+  }else {
+    var pass = [];
+    for (var i = 0; i < selection; i++) {
+      pass.push(getRandom(arr));
+    }
+    return pass.join('')
+  } 
 }
 
 
